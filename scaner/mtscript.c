@@ -6,7 +6,6 @@
 #define tabulation 9
 
 Lista_t token_list;
-
 void scan (Scanner_t sc){
     char * c;
     Token_type_t token_type;
@@ -19,7 +18,7 @@ void scan (Scanner_t sc){
                 token_type=ARRAY;
                 t = new_token(token_type,c , 0, 1);
                 Insertar_final(&token_list, &t);
-                break; 
+                break;
             case '=':
                 c = "EQUAL";
                 token_type=EQUAL;
@@ -53,7 +52,7 @@ void scan (Scanner_t sc){
 
         }
         advance(&sc);
-    }   
+    }
 }
 
 void imprime(Token_t* t){
@@ -62,7 +61,7 @@ void imprime(Token_t* t){
 
 int main(int argc, char**argv){
     if (argv[1]){
-        Scanner_t scaner; 
+        Scanner_t scaner;
         scaner.archivo=fopen(argv[1], "r");
         scan(scaner);
         por_cada(&token_list, imprime);
