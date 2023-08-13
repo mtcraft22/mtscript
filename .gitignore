@@ -1,0 +1,7 @@
+#vscode config files
+.vscode/
+#Builds
+*.out
+*.exe
+#clangd lsp configuration
+.clangd
