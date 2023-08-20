@@ -1,17 +1,28 @@
 #include <stdio.h>
-typedef struct scanner{
-    FILE* archivo;
-    int cursor;
-}Scanner_t ;
-
+#include <scanner.h>
+#include <string.h>
 int peek(Scanner_t sc){
-    fseek(sc.archivo,sc.cursor, SEEK_SET);
-    return fgetc(sc.archivo);
+    return sc.bufer[sc.cursor];
 }
 void advance(Scanner_t* sc){
     sc->cursor++;
 }
-char peekfar(int off, Scanner_t sc){
-    fseek(sc.archivo,sc.cursor+off, SEEK_SET);
-    return fgetc(sc.archivo);
+int peekfar(int off, Scanner_t sc){
+    int tmp_cursor = sc.cursor;
+    tmp_cursor ++;
+    return sc.bufer[tmp_cursor];
+
+}
+void peek_until_space(Scanner_t *sc, char * cadena){
+    int count = 0;
+    while (sc->bufer[sc->cursor+count]!=32) {
+        count ++;
+    }
+    
+
+    for (count; 0<count; count--){
+        printf("joder: %d",count);
+        cadena[count]=sc->bufer[sc->cursor+count];
+    }
+    cadena[0]=sc->bufer[sc->cursor];
 }

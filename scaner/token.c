@@ -1,9 +1,7 @@
 #include <token.h>
-Token_t new_token(Token_type_t type, char* lexeme, char* literal, int line){
-    Token_t token;
-    token.type=type;
-    token.lexeme=lexeme;
-    token.literal=literal;
-    token.type=line;
+Token_t* new_token(token_type_t ty, char* meta,int line , int caracter){
+    Token_t* token;
+    token->type=ty;
+    token->meta=meta;
     return token;
 }

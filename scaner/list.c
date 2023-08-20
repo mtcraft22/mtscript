@@ -5,11 +5,7 @@
 
 Nodo_t* crear_nodo(Token_t* dato){
 	Nodo_t* nodo = (Nodo_t*)malloc(sizeof(Nodo_t));
-	nodo->v.lexeme=dato->lexeme;
-    nodo->v.line=dato->line;
-    nodo->v.literal=dato->literal;
-    nodo->v.type=dato->type;
-	nodo->siguiente=NULL;
+	nodo->v = *dato;
 	return nodo;
 }
 
@@ -104,14 +100,15 @@ void Elimina_final(Lista_t* lista){
 	lista->Longitud--;
 }
 
-void Elimina_enmedio(Lista_t* lista, int n){
+int Elimina_enmedio(Lista_t* lista, int n){
 	if(lista->cabeza){
 		if (n==0){
 			Elimina_pricipio(lista);
+			return 1;
 		}else if (n<Longitud(lista)){
 			Nodo_t* actual=lista->cabeza;
 			int contador=0;
-			while (actual->siguiente && (n-1))
+			while (actual->siguiente && contador<(n-1))
 			{
 				actual=actual->siguiente;
 				contador++;
@@ -119,9 +116,14 @@ void Elimina_enmedio(Lista_t* lista, int n){
 			Nodo_t* eliminado = actual->siguiente;
 			actual->siguiente=eliminado->siguiente;
 			destruir_nodo(eliminado);
+			lista->Longitud--;
+			return 1;
+		}else {
+			return 0;
 		}
+	}else {
+		return 0;
 	}
-	lista->Longitud--;
 }
 void por_cada(Lista_t* lista , void(*funcion)(Token_t* dato)){
 	Nodo_t* actual=lista->cabeza;
@@ -134,11 +136,12 @@ void por_cada(Lista_t* lista , void(*funcion)(Token_t* dato)){
 }
 void destructor(Lista_t *lista){
 	Nodo_t* actual=lista->cabeza;
-	while (actual->siguiente)
-	{
-		free(actual);
-		actual=actual->siguiente;
+	int i=0;
+	while (Longitud(lista)>0) {
+		Elimina_pricipio(lista);
 	}
-	free(actual);
+
+	
+	
 }
 

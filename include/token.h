@@ -1,4 +1,6 @@
 #pragma once
+
+
 typedef enum token_type{
     //-----Palabras clave----
     A,
@@ -7,10 +9,11 @@ typedef enum token_type{
     CARACTER,
     COMO,
     COMENZAR,
+    COMIENZA,
     CORESPONDE,
     DEFINE,
     DEPENDENCIAS,
-    DEVUELVE,  
+    DEVUELVE,
     EN,
     ENTRADA,
     ES,
@@ -19,29 +22,30 @@ typedef enum token_type{
     FIN,
     FICHERO,
     FUNCIONES,
-    LINEA, 
+    LINEA,
     MIENTRAS,
     NUMERO,
     IO,
-    PARA, //FOR
+    PARA,
     PARAMETROS,
-    PROGRAMA,  
+    PROGRAMA,
     SALIDA,
     SECCION,
-    STD_IO, 
-    SI, //IF
-    SINO,//ELIF(python)
-    SIGIENTE, //CONTINUE
-    TERMINAR, //BREAK
+    STD_IO,
+    SI,
+    SINO,
+    SIGIENTE,
+    TERMINA,
+    TERMINAR,
     USANDO,
     VARIABLES,
-    //-----char tokens------
-    ASTERISK,
-    COMMA,
-    COLON,
-    DOT,
-    DOUBLE_QUOTATION,
-    EQUAL,
+//---chars----
+    ASTERISK ,
+    COMMA ,
+    COLON ,
+    DOT ,
+    DOUBLE_QUOTATION ,
+    EQUAL ,
     MINOR,
     MINUS,
     GREATER,
@@ -50,23 +54,21 @@ typedef enum token_type{
     RPARENT,
     SLASH,
     TAB,
-    //------duble char tokens--------
+//------double chars---------
     ASTERISK_EQUAL,
     PLUS_EQUAL,
     MINUS_EQUAL,
     SLASH_EQUAL,
-    //------Literales.-------
     END_OF_FILE,
-    IDENTIFIER, 
+    IDENTIFIER,
     NUMBER,
-    STRING, 
-    
-    
-}Token_type_t;
+    STRING,
+}token_type_t;
+
 typedef struct Token{
-    Token_type_t type;
-    char* lexeme;
-    char* literal;
+    int type;
+    char* meta;
     int line;
+    int caracter;
 }Token_t;
-Token_t new_token(Token_type_t type, char* lexeme, char* literal, int line);
+Token_t* new_token(token_type_t ty, char* meta,int line, int caracter);

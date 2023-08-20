@@ -1,6 +1,5 @@
-#ifndef list
-#define list 
-#include "token.h"
+#pragma once
+#include <token.h>
 
 typedef struct nodo
 {
@@ -26,11 +25,7 @@ Token_t* obtener(Lista_t* Lista, int n);
 
 int Longitud(Lista_t* lista);
 void Elimina_final(Lista_t* lista);
-void Elimina_enmedio(Lista_t* lista, int n);
+int Elimina_enmedio(Lista_t* lista, int n);
 
 void por_cada(Lista_t* lista , void(*funcion)(Token_t* dato));
 void destructor(Lista_t *lista);
-
-
-
-#endif //final list
