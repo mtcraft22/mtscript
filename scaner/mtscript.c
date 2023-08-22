@@ -72,7 +72,7 @@ char* string_token[58]={
 extern Lista_t token_list;
 
 void imprime(Token_t* t){
-    printf("token: %s meta: %s \n",string_token[t->type],t->meta);
+    printf("token: %s \n",string_token[t->type]);
 }
 
 int main(int argc, char**argv){
@@ -91,9 +91,8 @@ int main(int argc, char**argv){
         }
         fclose(source);
         scan(scaner);
-        //por_cada(&token_list, imprime);
-        //destructor(&token_list);
-        
+        por_cada(&token_list, imprime);
+        destructor(&token_list);
     }else {
         while (1) {
             char linea[BUFSIZ];
@@ -108,4 +107,3 @@ int main(int argc, char**argv){
     }
     return 0;
 }
-

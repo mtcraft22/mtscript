@@ -1,5 +1,5 @@
--------------------EN----------------------
-mtscript is a "cobol syntax like" whit spanish syntax languaje.
+<h1>-------------------EN----------------------</h1>
+<p>mtscript is a intuitive spanish systax languaje 
  
 Now only scan a few tokens. Don't do anything more. 
 
@@ -15,10 +15,10 @@ can run whit ./mtscript.out ./test/prueba.mt and this scan the file and return a
 
 See LINCENSE file for terms of use.
 
-Can use mysys for builds for microsoft windows
+Can use mysys for builds for microsoft windows</p>
 -------------------ESP----------------------
 
-mtscript es un lenguaje con systaxis remotamente pareacida a cobol. 
+mtscript es un lenguaje con systaxis española muy intituiva.
 Esto en un futuró compilará a c i luego con gcc a código maquina.
 
 Esta en una etapa muy inicial que de momento solo escanea el archivo de entrada.

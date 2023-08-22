@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <scanner.h>
 #include <string.h>
+
 int peek(Scanner_t sc){
     return sc.bufer[sc.cursor];
 }
@@ -18,11 +19,7 @@ void peek_until_space(Scanner_t *sc, char * cadena){
     while (sc->bufer[sc->cursor+count]!=32) {
         count ++;
     }
-    
-
-    for (count; 0<count; count--){
-        printf("joder: %d",count);
+    for (count; -1<count; count--){
         cadena[count]=sc->bufer[sc->cursor+count];
     }
-    cadena[0]=sc->bufer[sc->cursor];
 }

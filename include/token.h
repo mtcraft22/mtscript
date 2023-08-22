@@ -66,9 +66,9 @@ typedef enum token_type{
 }token_type_t;
 
 typedef struct Token{
-    int type;
+    token_type_t type;
     char* meta;
     int line;
     int caracter;
 }Token_t;
-Token_t* new_token(token_type_t ty, char* meta,int line, int caracter);
+Token_t new_token(token_type_t ty, char* meta,int line, int caracter);

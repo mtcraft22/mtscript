@@ -19,6 +19,7 @@ void Insertar_pricipio(Lista_t* lista, Token_t* dato){
 	lista->cabeza=nodo;
 	lista->Longitud++;
 }
+
 void Insertar_final(Lista_t* lista, Token_t* dato){
 	Nodo_t* nodo=crear_nodo(dato);
 	if (lista->cabeza==NULL){
@@ -33,6 +34,7 @@ void Insertar_final(Lista_t* lista, Token_t* dato){
 	}
 	lista->Longitud++;
 }
+
 void Insertar_Despues(int n, Lista_t* lista, Token_t* dato){
 	Nodo_t* nodo=crear_nodo(dato);
 	if (lista->cabeza==NULL){
@@ -51,6 +53,7 @@ void Insertar_Despues(int n, Lista_t* lista, Token_t* dato){
 	lista->Longitud++;
 
 }
+
 Token_t* obtener(Lista_t* lista, int n){
 	if (lista->cabeza==NULL){
 		return NULL;
@@ -80,6 +83,7 @@ void Elimina_pricipio(Lista_t* lista){
 	}
 	
 }
+
 void Elimina_final(Lista_t* lista){
 	if (lista->cabeza){
 		if (lista->cabeza->siguiente){
@@ -125,6 +129,7 @@ int Elimina_enmedio(Lista_t* lista, int n){
 		return 0;
 	}
 }
+
 void por_cada(Lista_t* lista , void(*funcion)(Token_t* dato)){
 	Nodo_t* actual=lista->cabeza;
 	while (actual->siguiente)
@@ -134,14 +139,15 @@ void por_cada(Lista_t* lista , void(*funcion)(Token_t* dato)){
 	}
 	funcion(&actual->v);
 }
+
+/*
+	desalocate the tokens list
+*/
 void destructor(Lista_t *lista){
 	Nodo_t* actual=lista->cabeza;
 	int i=0;
 	while (Longitud(lista)>0) {
 		Elimina_pricipio(lista);
-	}
-
-	
-	
+	}		
 }
 
