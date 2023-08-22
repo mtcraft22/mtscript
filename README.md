@@ -1,5 +1,5 @@
 <h1>-------------------EN----------------------</h1>
-<p>mtscript is a intuitive spanish systax languaje 
+<p>mtscript is a intuitive spanish systax languaje. 
  
 Now only scan a few tokens. Don't do anything more. 
 
@@ -24,8 +24,11 @@ Esto en un futuró compilará a c i luego con gcc a código maquina.
 Esta en una etapa muy inicial que de momento solo escanea el archivo de entrada.
 
 Para compilar:
-make clear 
-make all
+<ol>
+    <li> make clear </li>
+    <li> make all</li>
+</ol>   
+ 
 
 Vea un ejemplo del lenguaje en la carpeta ./test.
 Vea el archivo LICENSE para terminos de uso.
