@@ -17,20 +17,21 @@ void scan (Scanner_t sc){
     char cadena [80];
 
     printf("%c",0);//this prevent a segmentation fault, not erase please, im know this is very dirty solutionk, sorry
-    while (peek(sc)) {
+    while (1) {
+        if (peek(sc)==EOF){break;}
+        peek_until_space(&sc, cadena);
         switch (peek(sc)) {
             case 'A':
-                if (peekfar(1, sc)==82){
-                    peek_until_space(&sc, cadena);
-                    
+               
+                   
                     if (strcmp(cadena,"ARRAY")==0){
                         token = new_token(ARRAY ,0, 0, 0);
                         Insertar_final(&token_list, &token);
-                        if (peekfar(1,sc)!=EOF){
-                            advance(&sc);
-                        }
                     }
-                }
+                
+                
+                advance(&sc);
+                break;
             case tabulation:
                 token = new_token(TAB ,0, 0, 0);
                 Insertar_final(&token_list, &token);
