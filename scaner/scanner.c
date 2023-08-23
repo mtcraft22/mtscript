@@ -16,9 +16,9 @@ int peekfar(int off, Scanner_t sc){
 }
 void peek_until_space(Scanner_t *sc, char * cadena){
     int count = 0;
-    while (sc->bufer[sc->cursor+count]!=32) {
-        count ++;
-    }
+    while (sc->bufer[sc->cursor+count]!=32 && sc->bufer[sc->cursor+count]!=10){count ++;}
+    count --;
+    cadena[count+1]=0;
     for (count; -1<count; count--){
         cadena[count]=sc->bufer[sc->cursor+count];
     }

@@ -80,9 +80,14 @@ int main(int argc, char**argv){
         Scanner_t scaner;
         FILE* source=fopen(argv[1], "r");
         int pos = 0;
+        for (pos;pos<BUFSIZ;pos++){
+            scaner.bufer[pos]=0;
+        }
+        pos=0;
         while (1) {
             int ch=getc(source);
             if (ch==EOF) {
+                scaner.bufer[pos]=EOF;
                 break;
             }else{
                 scaner.bufer[pos]=ch;
