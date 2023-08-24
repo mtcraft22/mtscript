@@ -1,4 +1,5 @@
-#include <scanner.h>
+#include "scanner.h"
+#include <stdlib.h>
 #include <stdio.h>
 #include <token.h>
 #include <list.h>
@@ -17,19 +18,81 @@ void scan (Scanner_t sc){
     char cadena [80];
 
     printf("%c",0);//this prevent a segmentation fault, not erase please, im know this is very dirty solutionk, sorry
+    
     while (1) {
         if (peek(sc)==EOF){break;}
-        peek_until_space(&sc, cadena);
         switch (peek(sc)) {
-            case 'A':
-               
-                   
-                    if (strcmp(cadena,"ARRAY")==0){
-                        token = new_token(ARRAY ,0, 0, 0);
-                        Insertar_final(&token_list, &token);
-                    }
-                
-                
+            case '*':
+                if (peekfar(1, sc)=='='){
+                    token = new_token(ASTERISK_EQUAL ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                    advance(&sc);
+                }else {
+                    token = new_token(ASTERISK ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                }
+                break;
+            case '/':
+                if (peekfar(1, sc)=='='){
+                    token = new_token(SLASH_EQUAL ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                    advance(&sc);
+                }else {
+                    token = new_token(SLASH ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                }
+                break;
+            case '-':
+                if (peekfar(1, sc)=='='){
+                    token = new_token(MINUS_EQUAL ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                    advance(&sc);
+                }else {
+                    token = new_token(MINUS ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                }
+                break;
+            case '+':
+                if (peekfar(1, sc)=='='){
+                    token = new_token(PLUS_EQUAL ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                    advance(&sc);
+                }else {
+                    token = new_token(PLUS ,0, 0, 0);
+                    Insertar_final(&token_list, &token);
+                    advance(&sc);
+                }
+                break;
+            case '=':
+                token = new_token(EQUAL ,0, 0, 0);
+                Insertar_final(&token_list, &token);
+                advance(&sc);
+                break;
+            case ',':
+                token = new_token(COMMA ,0, 0, 0);
+                Insertar_final(&token_list, &token);
+                advance(&sc);
+                break;
+            case ':':
+                token = new_token(COLON ,0, 0, 0);
+                Insertar_final(&token_list, &token);
+                advance(&sc);
+                break;
+            case '.':
+                token = new_token(DOT ,0, 0, 0);
+                Insertar_final(&token_list, &token);
+                advance(&sc);
+                break;
+            case '"':
+                token = new_token(DOUBLE_QUOTATION ,0, 0, 0);
+                Insertar_final(&token_list, &token);
                 advance(&sc);
                 break;
             case tabulation:
@@ -42,7 +105,6 @@ void scan (Scanner_t sc){
                 Insertar_final(&token_list, &token);
                 advance(&sc);
                 break;
-
             default:
                 advance(&sc);
         }
