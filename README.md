@@ -16,7 +16,7 @@ can run whit ./mtscript.out ./test/prueba.mt and this scan the file and return a
 See LINCENSE file for terms of use.
 
 Can use mysys for builds for microsoft windows</p>
--------------------ESP----------------------
+<h1>-------------------ESP----------------------</h1>
 
 mtscript es un lenguaje con systaxis española muy intituiva.
 Esto en un futuró compilará a c i luego con gcc a código maquina.
