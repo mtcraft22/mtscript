@@ -3,7 +3,9 @@
 #include <tokens.hpp>
 #include <scanner.hpp>
 
-
+scaner::scaner(std::string src){
+    this->src = src;
+}
 std::vector<Token> scaner::getTokens(){return this->tokens;}
 bool scaner::isFinal(){return current> this->src.length();}
 char scaner::advance(){return this->src.at(current ++);}

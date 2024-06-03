@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <vector>
 #include "tokens.hpp"
 class scaner {
@@ -10,6 +11,7 @@ class scaner {
         int current = 0;
         int line = 1;
     public:
+        scaner(std::string src);
         std::vector<Token> getTokens();
         bool isFinal();
         char advance();
