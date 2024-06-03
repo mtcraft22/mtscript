@@ -4,7 +4,7 @@ typedef enum token {
     A,
     ARRAY,
     CADENA,
-    CARACTE,
+    CARACTER,
     COMO,
     COMENZAR,
     COMIENZA,
@@ -44,6 +44,7 @@ typedef enum token {
     DOT,
     DOUBLE_QUOTATION,
     EQUAL,
+    END_LINE,
     LESS_THAN,
     MINUS,
     GREATER_THAN,
@@ -52,6 +53,7 @@ typedef enum token {
     RPARENT,
     SLASH,
     TAB,
+    
 //------double chars---------
     ASTERISK_EQUAL,
     PLUS_EQUAL,
@@ -71,6 +73,8 @@ class Token {
         const std::string lexeme;
         const void* literal;
         const int line;
-    Token(const Token_t type,const std::string lexeme,const void* literal,const int line);
-    std::string to_string();
+    public:
+        Token(const Token_t type,const std::string lexeme,const int line);
+        Token(const Token_t type,const std::string lexeme,const void* literal,const int line);
+        std::string to_string();
 };
