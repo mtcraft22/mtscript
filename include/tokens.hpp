@@ -1,12 +1,10 @@
 #pragma once
-
-
-typedef enum token_type{
-    //-----Palabras clave----
+#include <string>
+typedef enum token {
     A,
     ARRAY,
     CADENA,
-    CARACTER,
+    CARACTE,
     COMO,
     COMENZAR,
     COMIENZA,
@@ -41,19 +39,17 @@ typedef enum token_type{
     VARIABLES,
 //---chars----
     ASTERISK ,
-    COMMA ,
-    COLON ,
-    DOT ,
-    DOUBLE_QUOTATION ,
-    EQUAL ,
+    COMMA,
+    COLON,
+    DOT,
+    DOUBLE_QUOTATION,
+    EQUAL,
     LESS_THAN,
     MINUS,
     GREATER_THAN,
-    L_ROUND_BRAKET,
+    LPARENT,
     PLUS,
-    R_ROUND_BRAKET,
-    L_SQUARE_BRAKET,
-    R_SQUARE_BRAKET,
+    RPARENT,
     SLASH,
     TAB,
 //------double chars---------
@@ -62,15 +58,19 @@ typedef enum token_type{
     MINUS_EQUAL,
     SLASH_EQUAL,
     END_OF_FILE,
+    
+//-----LITERALS-------
+
     IDENTIFIER,
     NUMBER,
     STRING,
-}token_type_t;
-
-typedef struct Token{
-    token_type_t type;
-    char* meta;
-    int line;
-    int caracter;
 }Token_t;
-Token_t new_token(token_type_t ty, char* meta,int line, int caracter);
+class Token {
+    private:
+        const Token_t type;
+        const std::string lexeme;
+        const void* literal;
+        const int line;
+    Token(const Token_t type,const std::string lexeme,const void* literal,const int line);
+    std::string to_string();
+}
