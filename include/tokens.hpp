@@ -76,5 +76,5 @@ class Token {
     public:
         Token(const Token_t type,const std::string lexeme,const int line);
         Token(const Token_t type,const std::string lexeme,const void* literal,const int line);
-        std::string to_string();
+        std::string To_string();
 };

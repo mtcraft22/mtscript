@@ -1,7 +1,7 @@
-sources= $(shell ls ./scaner/*.c)
+sources= $(shell ls ./src/*.cpp)
 IncludePath= ./include
 all:
-	gcc $(sources) -I $(IncludePath) -g -o  mtscript.out
+	gcc -o mtscript.out $(sources) -I $(IncludePath) 
 clear:
 	rm *.out
  

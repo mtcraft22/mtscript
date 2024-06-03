@@ -1,4 +1,5 @@
 #include "tokens.hpp"
+#include <filesystem>
 #include <ios>
 #include <scanner.hpp>
 #include <cstdio>
@@ -11,16 +12,29 @@ using namespace std;
 
 int main (int argc, char** argv){
     if (argc > 1){
-        fstream archivo = fstream(argv[1]);
-        
-            cout << archivo.;
+        ifstream archivo = ifstream(argv[1]);
+        const unsigned long int size = filesystem::file_size(argv[1]);
+        char filedata[size];
+        archivo.read(filedata, filesystem::file_size(argv[1]));
+        scaner escaneador = scaner(string(filedata));
+        escaneador.scan();
+        for (Token i : escaneador.getTokens()){
+          
+            cout << i.To_string();
+        }
         
     }else{
         string line = "";
         while (line != "exit") {
             cout << "mtscript> ";
             cin >> line;
-            cout << "ok> " << line << endl;
+            scaner escaneador = scaner(string(line));
+            escaneador.scan();
+            cout << "OK> ";
+            for (Token i : escaneador.getTokens()){
+            
+                cout << i.To_string();
+            }
         }
     }
     return 0;
