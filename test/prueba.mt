@@ -22,12 +22,13 @@ COMIENZA PROGRAMA PRUEBA
 			PERSONA.PESO COMO ENTERO
 	SECCION PROCEDIMIENTO
 		A ES 4
-		A = 9
+		A = 9999
 		C *= A -= B
 		MIENTRAS A<B
 			A +== 1
 		SI A>B ENTOCES
 			SALIR
-		texto = "Hola mundo"
+		SI A==B ENTOCES
+			texto = "Hola mundo"
 		HABLAR texto
 TERMINA PROGRAMA PRUEBA

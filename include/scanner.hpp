@@ -17,7 +17,8 @@ class scaner {
         char advance();
         char peek();
         void addtoken(Token_t token);
-        void addliteraltoken(Token_t token, void* literal);
+        void addliteraltoken(Token_t token, std::string literal);
         void scan();
+        bool match(char check);
     
 };

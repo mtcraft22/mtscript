@@ -18,6 +18,7 @@ See LINCENSE file for terms of use.
 
 Can use mysys for builds for microsoft windows</p>
 <h1>-------------------ESP----------------------</h1>
+Creditos a https://craftinginterpreters.com manual para hacer interpretes
 
 mtscript es un lenguaje con systaxis española muy intituiva.
 Esto en un futuró compilará a c i luego con gcc a código maquina.
