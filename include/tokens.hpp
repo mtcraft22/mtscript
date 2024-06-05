@@ -34,6 +34,7 @@ typedef enum token {
     PARA,
     PARAMETROS,
     PROGRAMA,
+    PROCEDIMIENTO,
     SALIDA,
     SECCION,
     STD_IO,
@@ -65,6 +66,7 @@ typedef enum token {
 //------double chars---------
     ASTERISK_EQUAL,
     BANG_EQUAL,
+    CONTINUE_LINE,
     PLUS_EQUAL,
     MINUS_EQUAL,
     SLASH_EQUAL,

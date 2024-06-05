@@ -34,6 +34,7 @@ std::map<std::string, Token_t> key_words = {
 {"PARA",PARA},
 {"PARAMETROS",PARAMETROS},
 {"PROGRAMA",PROGRAMA},
+{"PROCEDIMIENTO",PROCEDIMIENTO},
 {"SALIDA",SALIDA},
 {"SECCION",SECCION},
 {"STD_IO",STD_IO},
@@ -53,6 +54,6 @@ Token::Token(const Token_t type,const std::string lexeme,std::string literal,con
 }
 std::string Token::To_string(){
     
-    return "Type: " + std::to_string(this->type) + "Lexeme : " + 
-    this->lexeme + "Literal value : " + this->literal + " at line: " + std::to_string(this->line) + '\n';
+    return " Type: " + std::to_string(this->type) + " Lexeme : " + 
+    this->lexeme + " Literal value : " + this->literal + " at line: " + std::to_string(this->line) + '\n';
 }
