@@ -6,7 +6,7 @@
 #include <string>
 #include <tokens.hpp>
 #include <vector>
-
+#include <errors.hpp>
 scaner::scaner(std::string src) { this->src = src; }
 std::vector<Token> scaner::getTokens() { return this->tokens; }
 bool scaner::isFinal() { return current >= this->src.length(); }
@@ -67,15 +67,11 @@ void scaner::scan() {
       }
 
       if (peek() == '\n') {
-        std::cout << "[MT-01]Terminación ilegal en una cadena, en la linea: "
-                  << std::to_string(this->line) << std::endl;
-        exit(-1);
+        mt_end_string.Throw(line);
       }
       advance();
       if (isFinal()) {
-        std::cout << "[MT-02]Final del archivo inesperado, en la linea: "
-                  << std::to_string(this->line) << std::endl;
-        exit(-1);
+        mt_end_file.Throw(line);
       } else {
         std::string texto = this->src.substr(this->start + 1,
                                              (this->current - this->start) - 2);
@@ -154,9 +150,7 @@ void scaner::scan() {
         }
 
       } else {
-        std::cout << "[MT-03] Eror de lexico " << this->line << " "
-                  << (int)caracter << std::endl;
-        exit(-1);
+        mt_ilegal_lexeme.Throw(line);
       }
       break;
     }
