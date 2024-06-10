@@ -41,6 +41,7 @@ std::map<std::string, Token_t> key_words = {
 {"FICHERO",FICHERO},
 {"FUNCIONES",FUNCIONES},
 {"LINEA",LINEA},
+{"MAYOR",MAYOR},
 {"MIENTRAS",MIENTRAS},
 {"NUMERO",NUMERO},
 {"IO",IO},

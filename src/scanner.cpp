@@ -168,4 +168,5 @@ void scaner::scan() {
       break;
     }
   }
+  this->addtoken(END_OF_FILE);
 }

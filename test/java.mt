@@ -14,4 +14,4 @@ COMIENZA PROGRAMA java
 		palabra ES "fuera"
 		ESCRIBE palabra EN datos
 		dato.posicion = 5
-		TERMINA PROGRAMA java
+TERMINA PROGRAMA java

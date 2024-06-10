@@ -42,6 +42,7 @@ typedef enum token {
     FICHERO,
     FUNCIONES,
     LINEA,
+    MAYOR,
     MIENTRAS,
     NUMERO,
     IO,
