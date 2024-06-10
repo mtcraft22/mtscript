@@ -14,26 +14,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#pragma once
-#include <string>
-#include <vector>
-#include "tokens.hpp"
-class scaner {
-    private:
-        std::vector<Token> tokens;
-        std::string src;
-        int start = 0;
-        int current = 0;
-        int line = 1;
-    public:
-        scaner(std::string src);
-        std::vector<Token> getTokens();
-        bool isFinal();
-        char advance();
-        char peek();
-        void addtoken(Token_t token);
-        void addliteraltoken(Token_t token, std::string literal);
-        void scan();
-        bool match(char check);
+class Expresion{
     
 };

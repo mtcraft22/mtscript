@@ -1,6 +1,8 @@
 COMIENZA PROGRAMA java
 	SECCION IO
-		USANDO STDIO
+		DEFINE datos
+			datos.destino es "datos.dat"
+			datos.acesso es escritura y lectura
 	SECCION VARIABLES
 		DEFINE palabra_buena COMO CADENA
 		DEFINE numero COMO ENTERO
@@ -8,5 +10,8 @@ COMIENZA PROGRAMA java
 		palabra_buena ES "casa"
 		numero ES 5555
 		ESCRIBE palabra ->
-		EN SALIDA_ESTANDAR
-TERMINA PROGRAMA java
+		EN pantalla
+		palabra ES "fuera"
+		ESCRIBE palabra EN datos
+		dato.posicion = 5
+		TERMINA PROGRAMA java
